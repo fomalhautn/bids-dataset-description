@@ -1,10 +1,19 @@
-<form *ngIf="filterForm" [formGroup]="filterForm" class="filter-form">
+<header>
+	<h2>Center for Imaging Research (CIR)</h2>
+</header>
+
+<div class="margin">
+	<h2>Modality agnostic files</h2>
+	<h3>Input data to generate dataset_description.json</h3>
+</div>
+
+<form *ngIf="filterForm" [formGroup]="filterForm" class="filter-form margin">
 	<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: filterFields,formGroup:filterForm }">
 	</ng-container>
 </form>
 
 <ng-template #recursiveList let-filterFields let-formGroup="formGroup">
-	<table class="form-group table-with-margin">
+	<table class="form-group">
 		<tr>
 			<th><strong>Key name</strong></th>
 			<th><strong>Requirement Level</strong></th>
@@ -37,5 +46,7 @@
 			</tr>
 			</ng-container>
 	</table>
+	<h3>Here is your dataset_description.json:</h3>
+	<pre>{{filterForm?.value|json}}</pre>
 </ng-template>
-<pre>{{filterForm?.value|json}}</pre>
+
