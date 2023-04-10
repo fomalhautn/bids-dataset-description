@@ -36,7 +36,7 @@ filterForm: FormGroup;
         column1: 'HEDVersion',
         column2: 'RECOMMENDED',
         column3: 'string or array of strings',
-        key: "BIDSVersion",
+        key: "HEDVersion",
         title: "If HED tags are used: The version of the HED schema used to validate HED tags for study. May include a single schema or a base schema and one or more library schema.",
         type: "text"
       },
