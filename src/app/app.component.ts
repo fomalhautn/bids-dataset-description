@@ -197,4 +197,31 @@ filterForm: FormGroup;
       ReferencesAndLinksControl.setValue(ReferencesAndLinks);
     }
   }
+
+  download() {
+    // Get the form data as a JSON object
+    const formData = this.filterForm.value;
+  
+    // Convert the form data to a string
+    const dataString = JSON.stringify(formData, null, 2);
+  
+    // Create a new blob with the data
+    const blob = new Blob([dataString], { type: 'application/json' });
+  
+    // Create a URL for the blob
+    const url = window.URL.createObjectURL(blob);
+  
+    // Create a new anchor element with the URL
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'dataset_description.json';
+  
+    // Trigger a click on the anchor element
+    document.body.appendChild(a);
+    a.click();
+  
+    // Clean up the anchor element and URL object
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }  
 }
