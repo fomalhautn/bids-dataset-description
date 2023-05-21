@@ -25,30 +25,6 @@ filterForm: FormGroup;
         type: "text"
       },
       {
-        column1: 'BIDSVersion',
-        column2: 'REQUIRED',
-        column3: 'string',
-        key: "BIDSVersion",
-        title: "The version of the BIDS standard that was used.",
-        type: "text"
-      },
-      {
-        column1: 'HEDVersion',
-        column2: 'RECOMMENDED',
-        column3: 'string or array of strings',
-        key: "HEDVersion",
-        title: "If HED tags are used: The version of the HED schema used to validate HED tags for study. May include a single schema or a base schema and one or more library schema.",
-        type: "text"
-      },
-      {
-        column1: 'DatasetLinks',
-        column2: 'REQUIRED if BIDS URIs are used',
-        column3: 'object of string',
-        key: "DatasetLinks",
-        title: "Used to map a given <dataset-name> from a BIDS URI of the form bids:<dataset-name>:path/within/dataset to a local or remote location. The <dataset-name>:  (an empty string) is a reserved keyword that MUST NOT be a key in DatasetLinks (example: bids::path/within/dataset).",
-        type: "text"
-      },
-      {
         column1: 'DatasetType',
         column2: 'RECOMMENDED',
         column3: 'string',
@@ -57,11 +33,19 @@ filterForm: FormGroup;
         type: "text"
       },
       {
-        column1: 'License',
-        column2: 'RECOMMENDED',
-        column3: 'string',
-        key: "License",
-        title: "The license for the dataset. The use of license name abbreviations is RECOMMENDED for specifying a license (see Licenses). The corresponding full license text MAY be specified in an additional LICENSE file.",
+        column1: 'EthicsApprovals',
+        column2: 'OPTIONAL',
+        column3: 'array of strings',
+        key: "EthicsApprovals",
+        title: "List of ethics committee approvals of the research protocols and/or protocol identifiers.",
+        type: "text"
+      },
+      {
+        column1: 'Funding',
+        column2: 'OPTIONAL',
+        column3: 'array of strings',
+        key: "Funding",
+        title: "List of sources of funding (grant numbers).",
         type: "text"
       },
       {
@@ -89,27 +73,27 @@ filterForm: FormGroup;
         type: "text"
       },
       {
-        column1: 'Funding',
-        column2: 'OPTIONAL',
-        column3: 'array of strings',
-        key: "Funding",
-        title: "List of sources of funding (grant numbers).",
+        column1: 'License',
+        column2: 'RECOMMENDED',
+        column3: 'string',
+        key: "License",
+        title: "The license for the dataset. The use of license name abbreviations is RECOMMENDED for specifying a license (see Licenses). The corresponding full license text MAY be specified in an additional LICENSE file.",
         type: "text"
       },
       {
-        column1: 'EthicsApprovals',
-        column2: 'OPTIONAL',
-        column3: 'array of strings',
-        key: "EthicsApprovals",
-        title: "List of ethics committee approvals of the research protocols and/or protocol identifiers.",
+        column1: 'BIDSVersion',
+        column2: 'REQUIRED',
+        column3: 'string',
+        key: "BIDSVersion",
+        title: "The version of the BIDS standard that was used.",
         type: "text"
       },
       {
-        column1: 'ReferencesAndLinks',
-        column2: 'OPTIONAL',
-        column3: 'array of strings',
-        key: "ReferencesAndLinks",
-        title: "List of references to publications that contain information on the dataset. A reference may be textual or a URI.",
+        column1: 'HEDVersion',
+        column2: 'RECOMMENDED',
+        column3: 'string or array of strings',
+        key: "HEDVersion",
+        title: "If HED tags are used: The version of the HED schema used to validate HED tags for study. May include a single schema or a base schema and one or more library schema.",
         type: "text"
       },
       {
@@ -118,6 +102,22 @@ filterForm: FormGroup;
         column3: 'string',
         key: "DatasetDOI",
         title: "The Digital Object Identifier of the dataset (not the corresponding paper). DOIs SHOULD be expressed as a valid URI; bare DOIs such as 10.0.2.3/dfjj.10 are DEPRECATED.",
+        type: "text"
+      },
+      {
+        column1: 'DatasetLinks',
+        column2: 'REQUIRED if BIDS URIs are used',
+        column3: 'object of string',
+        key: "DatasetLinks",
+        title: "Used to map a given <dataset-name> from a BIDS URI of the form bids:<dataset-name>:path/within/dataset to a local or remote location. The <dataset-name>:  (an empty string) is a reserved keyword that MUST NOT be a key in DatasetLinks (example: bids::path/within/dataset).",
+        type: "text"
+      },
+      {
+        column1: 'ReferencesAndLinks',
+        column2: 'OPTIONAL',
+        column3: 'array of strings',
+        key: "ReferencesAndLinks",
+        title: "List of references to publications that contain information on the dataset. A reference may be textual or a URI.",
         type: "text"
       },
       {
@@ -136,6 +136,8 @@ filterForm: FormGroup;
         title: "Used to specify the locations and relevant attributes of all source datasets. Valid keys in each object include 'URL', 'DOI' (see URI), and 'Version' with string values.",
         type: "text"
       },
+      
+      
     ];
 
     this.filterForm = this.generateFilterForm();
